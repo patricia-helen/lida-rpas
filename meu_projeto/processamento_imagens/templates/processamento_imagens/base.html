@@ -1,0 +1,29 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Site{% endblock %}</title>
+    <!-- Inclua aqui links para CSS ou JS se necessário -->
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Cabeçalho Padrão{% endblock %}</h1>
+    </header>
+
+    <nav>
+        <!-- Navegação do site -->
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Conteúdo padrão caso não seja sobreescrito -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>{% block footer %}Rodapé do Site{% endblock %}</p>
+    </footer>
+</body>
+</html>
