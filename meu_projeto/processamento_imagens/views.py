@@ -1,21 +1,23 @@
 # processamento_imagens/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import ImageUploadForm
-from .processamento import processar_imagem  # Função adaptada do seu notebook
+from .processamento import processar_imagem  # Suponha que você tem essa função
 
-def upload_and_process(request):
+def upload_view(request):
     if request.method == 'POST':
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
             imagem = request.FILES['image']
-            
-            # Aqui você adaptaria o processamento para trabalhar com o arquivo carregado
-            # Por exemplo, salvar temporariamente e processar
+            # Aqui você pode processar a imagem com sua função de processamento
             resultado = processar_imagem(imagem)  # Adapte essa função conforme necessário
-
-            # Você pode querer redirecionar para uma nova página com o resultado
-            # ou passar o resultado para o template
-            return render(request, 'resultado.html', {'resultado': resultado})
+            
+            # Supondo que o processamento foi bem-sucedido e você quer notificar o usuário
+            # Você pode querer retornar alguma informação específica do resultado
+            # Para este exemplo, apenas retornaremos uma mensagem genérica
+            mensagem_sucesso = "Imagem processada com sucesso!"
+            
+            # Alterado para passar a mensagem de sucesso ao template de resultado
+            return render(request, 'processamento_imagens/resultado.html', {'resultado': mensagem_sucesso})
     else:
         form = ImageUploadForm()
-    return render(request, 'upload.html', {'form': form})
+    return render(request, 'processamento_imagens/upload.html', {'form': form})

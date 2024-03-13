@@ -5,25 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Meu Site{% endblock %}</title>
+    <!-- Inclusão do CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Inclua aqui links para CSS ou JS se necessário -->
 </head>
 <body>
     <header>
-        <h1>{% block header %}Cabeçalho Padrão{% endblock %}</h1>
+        <!-- Você pode aplicar classes do Bootstrap aqui -->
+        <h1 class="text-center my-4">{% block header %}Cabeçalho Padrão{% endblock %}</h1>
     </header>
 
     <nav>
         <!-- Navegação do site -->
     </nav>
 
-    <main>
+    <main class="container">
+        <!-- Adicionando a classe container do Bootstrap para centralizar o conteúdo -->
         {% block content %}
         <!-- Conteúdo padrão caso não seja sobreescrito -->
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="text-center my-4">
         <p>{% block footer %}Rodapé do Site{% endblock %}</p>
     </footer>
+
+    <!-- Opcional: Inclusão do JS do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

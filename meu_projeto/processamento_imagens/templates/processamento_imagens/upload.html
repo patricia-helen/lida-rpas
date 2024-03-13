@@ -1,14 +1,16 @@
 <!-- processamento_imagens/templates/processamento_imagens/upload.html -->
 {% extends 'base.html' %}
 
-{% block title %}Upload de Imagem{% endblock %}
-
-{% block header %}Por favor, faça o upload de sua imagem{% endblock header %}
-
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+<div class="container mt-5">
+    <h2>Upload de Imagem</h2>
+    <form method="post" enctype="multipart/form-data" class="mb-3">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <div class="mb-3">
+            {{ form.image.label_tag }} <!-- Label do campo de upload -->
+            {{ form.image }}  <!-- Renderiza o input do arquivo -->
+        </div>
+        <button type="submit" class="btn btn-primary">Carregar Imagem</button>
     </form>
-{% endblock content %}
+</div>
+{% endblock %}
