@@ -4,33 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Meu Site{% endblock %}</title>
-    <!-- Inclusão do CSS do Bootstrap -->
+    <title>{% block title %}Visão Computacional para Sensoriamento Remoto com Python{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Inclua aqui links para CSS ou JS se necessário -->
 </head>
 <body>
-    <header>
-        <!-- Você pode aplicar classes do Bootstrap aqui -->
-        <h1 class="text-center my-4">{% block header %}Cabeçalho Padrão{% endblock %}</h1>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Visão Computacional para Sensoriamento Remoto com Python</a>
     </header>
 
-    <nav>
-        <!-- Navegação do site -->
-    </nav>
-
-    <main class="container">
-        <!-- Adicionando a classe container do Bootstrap para centralizar o conteúdo -->
+    <main class="container mt-4">
+        <h2 class="mb-3">{% block header %}Classificação por pixels{% endblock %}</h2>
         {% block content %}
-        <!-- Conteúdo padrão caso não seja sobreescrito -->
+        <p>A intenção do processo de classificação é categorizar todos os pixels em uma imagem digital em uma das várias classes de cobertura da terra, ou "temas". Esses dados categorizados podem então ser usados para produzir mapas temáticos da cobertura do solo presente em uma imagem. Normalmente, dados multiespectrais são usados para realizar a classificação e, de fato, o padrão espectral presente nos dados para cada pixel é usado como base numérica para a categorização (Lillesand e Kiefer, 1994). O objetivo da classificação de imagens é identificar e retratar, como um único nível de cinza (ou cor), as características que ocorrem em uma imagem em termos do objeto ou tipo de cobertura do solo que essas características realmente representam no solo.</p>
+        <p>Com a classificação supervisionada, identificamos exemplos das classes de informação (ou seja, tipo de cobertura do solo) de interesse na imagem. Estes são chamados de "sites de treinamento". O sistema de software de processamento de imagem é então usado para desenvolver uma caracterização estatística da refletância para cada classe de informação. Este estágio é frequentemente chamado de "análise de assinatura" e pode envolver o desenvolvimento de uma caracterização tão simples quanto a média ou a intensidade da refletância em cada faixa, ou tão complexa quanto análises detalhadas da média, variâncias e covariância em todas as faixas. Uma vez que uma caracterização estatística tenha sido alcançada para cada classe de informação, a imagem é então classificada examinando a refletância de cada pixel e tomando uma decisão sobre qual das assinaturas ele se parece mais.</p>
         {% endblock %}
     </main>
 
-    <footer class="text-center my-4">
-        <p>{% block footer %}Rodapé do Site{% endblock %}</p>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">{% block footer %}Rodapé do Site{% endblock %}</span>
+        </div>
     </footer>
 
-    <!-- Opcional: Inclusão do JS do Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
