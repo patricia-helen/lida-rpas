@@ -1,16 +1,35 @@
-<!-- processamento_imagens/templates/processamento_imagens/upload.html -->
-{% extends 'base.html' %}
+{% extends 'processamento_imagens/base.html' %}  <!-- Herdando do template base -->
 
-{% block content %}
-<div class="container mt-5">
+{% block content %}  <!-- Início do bloco de conteúdo -->
+<div class="container mt-4">  <!-- Seção para o formulário de upload -->
     <h2>Upload de Imagem</h2>
-    <form method="post" enctype="multipart/form-data" class="mb-3">
-        {% csrf_token %}
-        <div class="mb-3">
-            {{ form.image.label_tag }} <!-- Label do campo de upload -->
-            {{ form.image }}  <!-- Renderiza o input do arquivo -->
+
+    <!-- Formulário para upload com proteção CSRF -->
+    <form method="post" enctype="multipart/form-data">  <!-- Define a codificação para upload de arquivos -->
+        {% csrf_token %}  <!-- Proteção contra ataques CSRF -->
+        
+        <!-- Campo para upload de imagem -->
+        <div class="form-group">  <!-- Agrupa elementos do formulário -->
+            <label for="image">Selecione uma imagem para carregar:</label>  <!-- Rótulo para o campo de upload -->
+            <input type="file" class="form-control" id="image" name="image" accept="image/*" />  <!-- Campo para selecionar arquivo -->
         </div>
-        <button type="submit" class="btn btn-primary">Carregar Imagem</button>
+
+        <!-- Botão para enviar o formulário -->
+        <button type="submit" class="btn btn-primary">Carregar Imagem</button>  <!-- Botão para enviar -->
     </form>
+
+    <!-- Seção para exibir erros do formulário -->
+    {% if form.errors %}  <!-- Verifica se há erros no formulário -->
+    <div class="alert alert-danger mt-3">  <!-- Exibe mensagens de erro -->
+        <strong>Erros:</strong>
+        <ul>  <!-- Lista de erros por campo -->
+            {% for field, errors in form.errors.items %}  <!-- Itera sobre campos e seus erros -->
+                {% for error in errors %}  <!-- Itera sobre cada erro em um campo -->
+                    <li>{{ field }}: {{ error }}</li>  <!-- Exibe o erro de forma isolada -->
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 </div>
-{% endblock %}
+{% endblock %}  <!-- Fim do bloco de conteúdo -->

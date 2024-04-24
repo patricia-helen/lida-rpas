@@ -1,33 +1,61 @@
-<!-- templates/base.html -->
+{% load static %}  <!-- Carrega recursos estáticos -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Visão Computacional para Sensoriamento Remoto com Python{% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>{% block title %}LIDA-RPAS{% endblock %}</title>
+
+    <!-- Estilos do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">  <!-- Para estilos personalizados -->
+
+    {% block extra_css %}  <!-- Para CSS adicional, se necessário -->
+    {% endblock %}
 </head>
 <body>
-    <header class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Visão Computacional para Sensoriamento Remoto com Python</a>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">  <!-- Cabeçalho -->
+        <a class="navbar-brand" href="{% url 'home' %}">LIDA-RPAS</a>  <!-- Link para a página inicial -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">  <!-- Para mostrar/ocultar a navegação -->
+            <ul class="navbar-nav">  <!-- Lista de navegação -->
+                <li class="nav-item active">  <!-- Página inicial -->
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">  <!-- Página de upload de imagens -->
+                    <a class="nav-link" href="{% url 'upload_image' %}">Upload de Imagem</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
-    <main class="container mt-4">
-        <h2 class="mb-3">{% block header %}Classificação por pixels{% endblock %}</h2>
-        {% block content %}
-        <p>A intenção do processo de classificação é categorizar todos os pixels em uma imagem digital em uma das várias classes de cobertura da terra, ou "temas". Esses dados categorizados podem então ser usados para produzir mapas temáticos da cobertura do solo presente em uma imagem. Normalmente, dados multiespectrais são usados para realizar a classificação e, de fato, o padrão espectral presente nos dados para cada pixel é usado como base numérica para a categorização (Lillesand e Kiefer, 1994). O objetivo da classificação de imagens é identificar e retratar, como um único nível de cinza (ou cor), as características que ocorrem em uma imagem em termos do objeto ou tipo de cobertura do solo que essas características realmente representam no solo.</p>
-        <p>Com a classificação supervisionada, identificamos exemplos das classes de informação (ou seja, tipo de cobertura do solo) de interesse na imagem. Estes são chamados de "sites de treinamento". O sistema de software de processamento de imagem é então usado para desenvolver uma caracterização estatística da refletância para cada classe de informação. Este estágio é frequentemente chamado de "análise de assinatura" e pode envolver o desenvolvimento de uma caracterização tão simples quanto a média ou a intensidade da refletância em cada faixa, ou tão complexa quanto análises detalhadas da média, variâncias e covariância em todas as faixas. Uma vez que uma caracterização estatística tenha sido alcançada para cada classe de informação, a imagem é então classificada examinando a refletância de cada pixel e tomando uma decisão sobre qual das assinaturas ele se parece mais.</p>
+    <main class="container mt-4">  <!-- Conteúdo principal -->
+        {% block content %}  <!-- Onde os outros templates adicionam conteúdo -->
         {% endblock %}
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">{% block footer %}Rodapé do Site{% endblock %}</span>
+    <footer class="footer mt-auto py-3 bg-dark text-white">  <!-- Rodapé -->
+        <div class="container d-flex justify-content-between">  <!-- Usando flex para layout -->
+            <span class="text-muted">© 2024 LIDA-RPAS</span>  <!-- Texto de copyright no canto inferior esquerdo -->
+            <span class="text-muted">  <!-- E-mail centralizado -->
+                <a href="mailto:fernando.eugenio@ufvjm.edu.br">fernando.eugenio@ufvjm.edu.br</a>
+            </span>
+            <span class="text-muted">  <!-- Telefone no canto inferior direito -->
+                (27) 99635-2266
+            </span>
         </div>
     </footer>
 
+    <!-- Scripts para componentes interativos -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% block extra_js %}  <!-- Para scripts adicionais, se necessário -->
+    {% endblock %}
 </body>
 </html>

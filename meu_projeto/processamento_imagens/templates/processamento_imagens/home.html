@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visão Computacional para Sensoriamento Remoto com Python</title>
-</head>
-<body>
-    <h1>Visão Computacional para Sensoriamento Remoto com Python</h1>
-    <h2>Classificação por pixels</h2>
-    <p>A intenção do processo de classificação é categorizar todos os pixels em uma imagem digital em uma das várias classes de cobertura da terra, ou "temas". Esses dados categorizados podem então ser usados para produzir mapas temáticos da cobertura do solo presente em uma imagem. Normalmente, dados multiespectrais são usados para realizar a classificação e, de fato, o padrão espectral presente nos dados para cada pixel é usado como base numérica para a categorização (Lillesand e Kiefer, 1994). O objetivo da classificação de imagens é identificar e retratar, como um único nível de cinza (ou cor), as características que ocorrem em uma imagem em termos do objeto ou tipo de cobertura do solo que essas características realmente representam no solo.</p>
-    <!-- Adicione mais conteúdo conforme necessário -->
-</body>
-</html>
+{% extends 'processamento_imagens/base.html' %}  <!-- Herdando do template base -->
+
+{% load static %}  <!-- Certifique-se de carregar 'static' para acessar arquivos estáticos -->
+
+{% block content %}  <!-- Início do bloco de conteúdo -->
+<div class="jumbotron text-center">  <!-- Introdução ao projeto -->
+    <h1>Bem-vindo ao LIDA-RPAS</h1>
+    <p>O Laboratório de Inovação, Desenvolvimento e Aplicação de Sistemas de Aeronaves Pilotadas Remotamente (RPAS) tem como foco aprimorar a detecção e controle de plantas invasoras em plantios florestais.</p>
+    
+    <!-- Botão para carregar imagem -->
+    <a class="btn btn-primary mt-4" href="{% url 'upload_image' %}">Upload de Imagem</a>
+</div>
+
+<div class="container mt-4">  <!-- Seção "Sobre o Projeto" -->
+    <h2>Sobre o Projeto</h2>
+    <p>O projeto, liderado pelo professor Fernando Coelho Eugênio, utiliza RPAS equipados com câmeras multiespectrais para detectar e controlar a infestação de plantas invasoras em plantios florestais.</p>
+    
+    <!-- Detalhes do projeto -->
+    <h3>Objetivos do Projeto</h3>
+    <ul>
+        <li>Desenvolver um sistema de mapeamento para identificar plantas invasoras.</li>
+        <li>Adaptar uma plataforma RPAS para levantamentos aéreos.</li>
+        <li>Avaliar algoritmos para identificação de plantas invasoras.</li>
+        <li>Determinar o momento e o local ideais para intervenção em áreas invadidas.</li>
+    </ul>
+
+    <!-- Palavras-chave e outras informações -->
+    <p>Com essa abordagem, o projeto busca melhorar a gestão florestal e reduzir os danos causados por plantas invasoras, permitindo uma detecção precoce e aprimorando a tomada de decisões.</p>
+    
+    <p>Palavras-chave: RPAS, deep learning, monitoramento florestal, plantas daninhas. Este projeto, focado em Diamantina, busca soluções sustentáveis para o controle de plantas invasoras em plantios florestais.</p>
+</div>
+{% endblock %}  <!-- Fim do bloco de conteúdo -->
