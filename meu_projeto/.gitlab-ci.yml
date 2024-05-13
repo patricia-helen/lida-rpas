@@ -1,20 +1,36 @@
 image: python:3.8
 
 stages:
+  - build
   - test
   - migrate
   - collectstatic
+  - deploy
+
+cache:
+  paths:
+    - .pip_cache/
+    - venv/
 
 before_script:
   - python -m pip install --upgrade pip
-  - pip install -r requirements.txt
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
+  - export PIP_CACHE_DIR=.pip_cache
+
+build:
+  stage: build
+  script:
+    - pip install -r requirements.txt --cache-dir .pip_cache
+  artifacts:
+    paths:
+      - venv/
 
 test:
   stage: test
   script:
+    - pytest
     - python manage.py test
   only:
     - master
@@ -29,6 +45,15 @@ migrate:
 collectstatic:
   stage: collectstatic
   script:
+    - python manage.py collectstatic --noinput
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - source ~/lida-rpas/bin/activate
+    - python manage.py migrate
     - python manage.py collectstatic --noinput
   only:
     - master
