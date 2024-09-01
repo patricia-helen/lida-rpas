@@ -26,36 +26,39 @@ Imagem processada após uso de modelo
 
 
 **Clone o Repositório**:
-   
+
+   ```bash
    git clone <URL_DO_REPOSITORIO>
    cd meu_projeto
+```
 
 **Crie um Ambiente Virtual**:
 
-bash
+```bash
 
 python3 -m venv venv
 source venv/bin/activate  # No Windows, use: venv\Scripts\activate
+```
 
 **Instale as Dependências**:
 
-bash
+```bash
 
 pip install -r requirements.txt
-
+```
 **Execute as Migrações do Banco de Dados**:
 
-bash
+```bash
 
 python manage.py migrate
-
+```
 **Inicie o Servidor**:
-
+```
 bash
 
 python manage.py runserver
-
+```
 **Acesse a Aplicação**:
-
+```
 Abra o navegador e vá para http://127.0.0.1:8000/.
-
+```
