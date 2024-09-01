@@ -53,8 +53,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 **Inicie o Servidor**:
-```
-bash
+```bash
 
 python manage.py runserver
 ```
