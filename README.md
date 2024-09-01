@@ -28,7 +28,7 @@ Imagem processada após uso de modelo
 **Clone o Repositório**:
 
    ```bash
-   git clone <[URL_DO_REPOSITORIO](https://github.com/patricia-helen/lida-rpas)>
+   git clone <https://github.com/patricia-helen/lida-rpas>
    cd meu_projeto
 ```
 
