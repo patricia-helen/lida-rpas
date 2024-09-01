@@ -10,7 +10,7 @@ O projeto LIDA-RPAS (Laboratório de Inovação, Desenvolvimento e Aplicação d
 - **Detecção de Plantas Invasoras**: Uso de algoritmos de aprendizado de máquina para identificar áreas infestadas por plantas invasoras.
 - **Análise de Dados Geoespaciais**: Integração de bibliotecas Python como `rasterio`, `numpy`, e `matplotlib` para análise e visualização de dados.
 
-## Resultados de Processamento
+## Processamento da Imagem
 
 ### Voo Original
 Imagem capturada por um drone durante o voo:
@@ -18,7 +18,7 @@ Imagem capturada por um drone durante o voo:
 ![Voo Original](https://github.com/patricia-helen/lida-rpas/blob/main/Voo_01.png)
 
 ### Voo Processado
-Imagem processada utilizando o modelo de aprendizado de máquina:
+Imagem processada após uso de modelo
 
 ![Voo Processado](https://github.com/patricia-helen/lida-rpas/blob/main/Voo_02.png)
 
