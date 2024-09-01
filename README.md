@@ -1,8 +1,8 @@
-# LIDA-RPAS: Supervised Classification of Multispectral Images for Land Cover Mapping
+## LIDA-RPAS: Supervised Classification of Multispectral Images for Land Cover Mapping
 
 Este projeto explora a classificação supervisionada de imagens multiespectrais para mapeamento de cobertura do solo, utilizando técnicas de aprendizado de máquina, como Deep Learning e Máquinas de Vetores de Suporte (SVM). Através do uso do Python, o projeto foca na categorização baseada em pixels para análise de imagens e processamento de dados geoespaciais.
 
-## Visão Geral
+### Visão Geral
 
 O projeto LIDA-RPAS (Laboratório de Inovação, Desenvolvimento e Aplicação de Sistemas de Aeronaves Pilotadas Remotamente) visa aprimorar a detecção e controle de plantas invasoras em plantios florestais. Utilizando RPAS equipados com câmeras multiespectrais, este projeto desenvolve técnicas de classificação supervisionada para mapeamento preciso da cobertura do solo, com um foco particular em:
 
@@ -10,17 +10,6 @@ O projeto LIDA-RPAS (Laboratório de Inovação, Desenvolvimento e Aplicação d
 - **Detecção de Plantas Invasoras**: Uso de algoritmos de aprendizado de máquina para identificar áreas infestadas por plantas invasoras.
 - **Análise de Dados Geoespaciais**: Integração de bibliotecas Python como `rasterio`, `numpy`, e `matplotlib` para análise e visualização de dados.
 
-## Processamento da Imagem
-
-### Voo Original
-Imagem capturada por um drone durante o voo:
-
-![Voo Original](https://github.com/patricia-helen/lida-rpas/blob/main/Voo_01.png)
-
-### Voo Processado
-Imagem processada após uso de modelo
-
-![Voo Processado](https://github.com/patricia-helen/lida-rpas/blob/main/Voo_02.png)
 
 ## Como Executar
 
