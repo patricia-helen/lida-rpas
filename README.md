@@ -24,7 +24,38 @@ Imagem processada após uso de modelo
 
 ## Como Executar
 
-1. **Clone o Repositório**:
-   ```bash
+
+**Clone o Repositório**:
+   
    git clone <URL_DO_REPOSITORIO>
    cd meu_projeto
+
+*Crie um Ambiente Virtual:
+
+bash
+
+python3 -m venv venv
+source venv/bin/activate  # No Windows, use: venv\Scripts\activate
+
+Instale as Dependências:
+
+bash
+
+pip install -r requirements.txt
+
+Execute as Migrações do Banco de Dados:
+
+bash
+
+python manage.py migrate
+
+Inicie o Servidor:
+
+bash
+
+python manage.py runserver
+
+Acesse a Aplicação:
+
+Abra o navegador e vá para http://127.0.0.1:8000/.
+
